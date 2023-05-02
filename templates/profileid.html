@@ -1,0 +1,128 @@
+{% extends 'userlayout.html' %}
+
+{% block body %}
+
+
+
+
+<nav class="navbar bg-success fixed-top">
+  <div class="container-fluid">
+    <a href="/userbase"><h5 style=" color: #5454c9; padding:8px; color:#000;" ><b><<b> </h5></a>
+     </div>
+</nav>
+
+
+
+<div class="contain" style=" padding: 5px; margin-top:70px; display:flex; overflow:auto;">
+</div>
+
+
+
+<div class="container" style="+border-radius:10px 0 0 150px; padding: 10px; ">
+
+
+<div class="ade" style="  padding:20px;  margin-bottom:20px; ">
+    <div class="ade"style="display: flex;  ">
+
+      <h6 style="color:#000; text-align:left; margin-left:6px; "><b>{{profile.guardian}} <img src="static/img/check.png" style="width:10px;"></b> <br>#{{profile.work}}. <span class="text-muted" style="font-size:13px;">Live.</span> </h6>
+    </div>
+  
+<div class="ade"style=" background-color: #b2becc; background-color: #fff; border-radius:10px;"> 
+  <a href="" style="text-decoration: none;  text-align:center; color: #fff;">
+    <img src="{{profile.image_file}} "  alt=""style="width:320px; object-fit:cover;  border-radius:10px; height:350px;;"  > 
+  </a>
+  
+
+  
+  <div class="ade"style="display: flex; justify-content: space-between;margin-top:10px;  "> 
+    <a href="#" style="text-decoration: none; color: #992621;">     
+      <img src="https://cdn-icons-png.flaticon.com/512/25/25360.png"  alt=""style="width:30px; height:30px;"  > 
+    <span class="text-muted" style="font-size:13px;">comments</span>
+        
+    </a>
+    <!--    <img src="static/img/no.png"  alt=""style="width:25px; height:25px;"  > -->
+   <ion-icon style="font-size:30px;" class="fa fa-heart-o" id="likes-color" name="heart-outline"><label id="likes-counter"></label><span> likes</span>
+   
+  </div>
+  
+  <h6 class="text-muted">comments</h6>
+    <h6 style="color:#000; text-align:left; margin-left:10px; margin-top:10px; margin-bottom:20px; "><b>{{profile.guardian}}</b>  {{profile.fullname}}.</h6>
+</div>
+
+
+   
+    <div class="row justify-content-center mb-4">
+      <div class="flex-grow-1 ms-2 ms-sm-3">
+        <form action='' method="post" style="display:flex; margin-bottom:20px;">
+          
+          <textarea name="extra" class="form-control py-0 px-1 border-0" rows="1" placeholder="Start writing..." style="resize: none;"></textarea>
+          <button class="btn" style="color: #fff;  background: #631AAC;   border: none;" type="submit" >Comment</button>
+     
+        </form>
+      </div>
+      {%for user in user%} 
+      <div class="col-lg-8">
+        <div class="comments">
+          <div class="comment d-flex mb-4">
+            <div class="flex-shrink-0">
+              <div class="avatar avatar-sm rounded-circle">
+                <img class="avatar-img" src="static/img/cf2.png" alt="">
+              </div>
+            </div>
+
+
+            <div class="flex-grow-1 ms-2 ms-sm-3">
+              <div class="comment-meta d-flex align-items-baseline">
+                <h6 style="font-size:13px;" class="text-muted" class="me-2">{{current_user.name}}</h6>
+               
+              </div>
+              <div class="comment-body">
+                {{user.extra}}
+              </div>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="comment-form d-flex align-items-center">
+          <div class="flex-shrink-0">
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <h6 class="text-muted" style="color: #000; margin-top:10px; text-align:left;">Follow the Hashtag</h6>
+  <h6  style="color: #000; background-color:rgb(72, 239, 164); text-align:center; margin:auto; padding:10px; width:300px; border-radius:30px;">#{{profile.work}}</h6>
+  
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+  
+   
+
+
+
+
+
+{% endblock body %}
+
+

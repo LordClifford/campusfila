@@ -13,8 +13,10 @@
   <!--
     - custom css link
   -->
-  <link rel="stylesheet" href="/static/css/style-prefix.css">
 
+
+  <link href="static/img/cf2.png" rel="icon">
+  <link href="static/img/cf2.png" rel="apple-touch-icon">
   <!--
     - google font link
   -->
@@ -30,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/newstyle.css')}}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <title>Bootstrap demo</title>
+    <title>CampusFila</title>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -42,17 +44,7 @@
 
    
 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-danger mb-3" role="alert">
-            {{ message }} 
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        
-        {% endfor %}
-    {% endif %}
-{% endwith %}
+    
     
   
 
@@ -110,6 +102,33 @@
   
   <!-- <script defer src="//firebase/8.9.1/firebase-storage.js"></script> -->
   
+<script>
+
+    //likes add and remove - increase count
+    var count = 0;
+    var clickCount = 0;
+    var previousCount = 1;
+    document.getElementById("likes-counter").innerHTML = previousCount;
+    document.getElementById("likes").addEventListener("click", function(){
+      clickCount = clickCount+1;
+      if(clickCount%2==0){
+        var testing1 = document.getElementsByClassName("fa-heart")[0];
+        testing1.className="fa fa-heart-o"
+        testing1.style.color = "black";
+        document.getElementById("likes-color").style.color = "black";
+        document.getElementById("likes-counter").innerHTML = previousCount;
+      }
+      else{
+        var testing = document.getElementsByClassName("fa-heart-o")[0];
+        testing.className="fa fa-heart"
+        testing.style.color = "red";
+        document.getElementById("likes-counter").innerHTML = previousCount + 1;
+
+      }
+      count = count+1;
+    });
+  </script>
+
 
 
   <script>
@@ -131,6 +150,32 @@
     firebase.analytics();
   </script>
     
+
+  <script>
+//likes add and remove - increase count
+var count = 0;
+var clickCount = 0;
+var previousCount = 5;
+document.getElementById("likes-counter").innerHTML = previousCount;
+document.getElementById("likes").addEventListener("click", function(){
+	clickCount = clickCount+1;
+	if(clickCount%2==0){
+		var testing1 = document.getElementsByClassName("fa-heart")[0];
+		testing1.className="fa fa-heart-o"
+		testing1.style.color = "black";
+		document.getElementById("likes-color").style.color = "black";
+		document.getElementById("likes-counter").innerHTML = previousCount;
+	}
+	else{
+		var testing = document.getElementsByClassName("fa-heart-o")[0];
+		testing.className="fa fa-heart"
+		testing.style.color = "red";
+		document.getElementById("likes-counter").innerHTML = previousCount + 1;
+
+	}
+	count = count+1;
+});
+</script>
     
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

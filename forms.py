@@ -12,7 +12,7 @@ class RegistrationForm(FlaskForm):
     nationality = StringField('nationality',validators=[DataRequired()] )
     contact= StringField('contact',validators=[ DataRequired(), Length(min=10, max=10, message="Your number shouldn't be less than 10")])
     email = StringField('email',validators=[(DataRequired() )])
-    faculty = SelectField('faculty',  choices=[('Faculty/School','Faculty/School'),('Joy Otabil', 'Joy Otabil'), ('Faith','Faith'), ('Freedom','Freedom'), ('Kathryl Kuhlman ', 'Kathryl Kuhlman '), ('Justice','Justice'), ('Billy Graham','Billy Graham'),('Billy Graham','Billy Graham'),  ('Chancellor', 'Chancellor'),('Integerity','Integerity'), ], default=None )
+    faculty = SelectField('faculty',  choices=[('Campus','Campus'),('CU', 'CU'), ('Legon','Legon'), ('KNUST','KNUST'), ('UPSA', 'UPSA')], default=None )
     hallofresidence = SelectField('hallofresidence',  choices=[('Halls','Halls'),('Joy Otabil', 'Joy Otabil'), ('Faith','Faith'), ('Freedom','Freedom'), ('Kathryl Kuhlman ', 'Kathryl Kuhlman '), ('Justice','Justice'), ('Billy Graham','Billy Graham'),('Billy Graham','Billy Graham'),  ('Chancellor', 'Chancellor'),('Integerity','Integerity'), ], default=None )
     password = PasswordField('password')
     submit = SubmitField('Register')
@@ -42,6 +42,8 @@ class Registration(FlaskForm):
     indexnumber = StringField('indexnumber')
     name = StringField('Name', validators=[DataRequired()])
     phone= StringField('phone')
+    password = PasswordField('password')
+    faculty = SelectField('faculty',  choices=[('Campus','Campus'),('CU', 'CU'), ('Legon','Legon'), ('KNUST','KNUST'), ('UPSA', 'UPSA')], default=None )
    
     submit = SubmitField('SignUp')  
     # el4 = SelectField('el4', default='None', choices=[(user.lastname, user.lastname) for user in Person.query.all()])  
@@ -67,9 +69,10 @@ class Adduser(FlaskForm):
     marital= SelectField('Marital',  choices=[('Marital Status','Marital Status'),('Married', 'Married'), ('Divored','divored'), ('Single','Single')  ], default=None )
     picture = FileField('Add a picture', validators=[ FileAllowed(['jpg', 'png','jpeg'])])
     extra= StringField('extra')
-    submit = SubmitField('Register')
+    submit = SubmitField('AddFila')
     image_file = StringField('image_file')
-  
+    submit = SubmitField('submit') 
+    
   
 
     
@@ -91,10 +94,11 @@ class Adsearch(FlaskForm):
   
   
 #userlogin  
-class Alumni(FlaskForm):
-    email= StringField('email', validators=[DataRequired()])
-    password = PasswordField('password', validators=[DataRequired()])
-    submit = SubmitField('Login')  
+class Post(FlaskForm):
+    extra = StringField('extra')
+    address = StringField('address')
+    telephone = StringField('telephone')
+    submit = SubmitField('submit')  
     
 
 class AlumniSignin(FlaskForm):
